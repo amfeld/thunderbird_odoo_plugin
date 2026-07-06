@@ -1,0 +1,253 @@
+:root {
+  --odoo: #714b67;
+  --odoo-2: #8f5f82;
+  --bg: #ffffff;
+  --fg: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #f9fafb;
+  --danger: #b91c1c;
+  --ok: #15803d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1e1e;
+    --fg: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #3a3a3a;
+    --card: #262626;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 360px;
+  max-height: 560px;
+  overflow-y: auto;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+#app {
+  padding: 12px;
+}
+
+/* ---- loading ---- */
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid var(--border);
+  border-top-color: var(--odoo);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- generic ---- */
+h1 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 12px;
+}
+.center {
+  text-align: center;
+}
+.stack > * + * {
+  margin-top: 8px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+  padding: 7px 10px;
+}
+button:hover {
+  border-color: var(--odoo);
+}
+button.primary {
+  background: var(--odoo);
+  border-color: var(--odoo);
+  color: #fff;
+}
+button.primary:hover {
+  background: var(--odoo-2);
+}
+button.block {
+  width: 100%;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+a {
+  color: var(--odoo);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---- contact header ---- */
+.contact {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--card);
+  border: 1px solid var(--border);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 18px;
+}
+.contact .name {
+  font-weight: 600;
+  font-size: 14px;
+}
+.contact .sub {
+  color: var(--muted);
+  font-size: 12px;
+  word-break: break-all;
+}
+
+/* ---- cards / sections ---- */
+.card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 8px;
+  padding: 10px;
+}
+.section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 14px 0 6px;
+}
+.lead {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.lead:last-child {
+  border-bottom: none;
+}
+.badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: var(--odoo);
+  color: #fff;
+  font-size: 11px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 12px 0;
+}
+
+/* ---- action grid ---- */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+/* ---- inline search box ---- */
+input[type="text"] {
+  font: inherit;
+  width: 100%;
+  padding: 7px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* ---- toast ---- */
+.toast {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 12px;
+  text-align: center;
+  z-index: 10;
+}
+.toast.err {
+  background: var(--danger);
+  color: #fff;
+}
+.toast.ok {
+  background: var(--ok);
+  color: #fff;
+}
+
+.pane-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.pane-head img {
+  width: 20px;
+  height: 20px;
+}
+.pane-head .title {
+  font-weight: 600;
+}
+.pane-head .gear {
+  margin-left: auto;
+  font-size: 15px;
+  padding: 3px 7px;
+}

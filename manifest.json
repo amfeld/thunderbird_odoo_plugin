@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Odoo for Thunderbird",
+  "version": "1.2.0",
+  "description": "Odoo-Kontaktprofil, Leads, Projektaufgaben und Tickets direkt aus der geöffneten E-Mail – wie das Odoo-Outlook-Plugin, für Thunderbird.",
+  "author": "Alex Feld",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{9fc7b9a7-0202-46a9-abd4-10acce3e4a9f}",
+      "strict_min_version": "128.0"
+    }
+  },
+  "permissions": [
+    "messagesRead",
+    "storage",
+    "identity"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "message_display_action": {
+    "default_title": "Odoo",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/odoo-16.png",
+      "32": "icons/odoo-32.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/odoo-16.png",
+    "32": "icons/odoo-32.png",
+    "64": "icons/odoo-64.png",
+    "128": "icons/odoo-128.png"
+  }
+}
