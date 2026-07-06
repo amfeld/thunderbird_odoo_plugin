@@ -105,6 +105,11 @@ header sent to your own Odoo instance.
 
 ## Known limitations
 
+- The contact lookup is **sender-based**, like the official Outlook add-in:
+  it always resolves the message *author*. For an e-mail you sent yourself
+  that means it looks up your own address, not the recipient. Direction-aware
+  lookup (show the counterpart on outgoing mail) would need the `accountsRead`
+  permission and is intentionally left out to keep this build minimal.
 - Attachments are not yet transferred when logging an e-mail
   (`log_mail_content` supports them — contributions welcome).
 - "Open in Odoo" uses the Odoo 19 web URLs (`/odoo/contacts/<id>`,
